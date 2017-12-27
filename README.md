@@ -20,7 +20,7 @@ scrapy crawl user
 ```
 scrapy crawl video
 ```
-需要在settings中设置爬取的mid的起止点(VIDEO_START和VIDEO_END)
+需要在settings中设置爬取的av号的起止点(VIDEO_START和VIDEO_END)
 *****
 ## 使用配置
 配置在setting中，配置相关信息
