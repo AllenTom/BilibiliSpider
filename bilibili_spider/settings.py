@@ -21,6 +21,9 @@ NEWSPIDER_MODULE = 'bilibili_spider.spiders'
 USER_START = 1
 USER_END = 2
 
+# 爬取视频AV号起止点
+VIDEO_START = 1
+VIDEO_END = 100
 # MongoDB配置
 MONGO_HOST = "127.0.0.1"
 MONGO_PORT = "27017"
@@ -93,6 +96,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'bilibili_spider.pipelines.UserPipelines': 300,
+    'bilibili_spider.pipelines.VideoPipelines': 301,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
