@@ -27,7 +27,7 @@ class VideoSpider(scrapy.Spider):
                 "Accept": "text/html,application",
                 'Accept-Language': 'en-US,en;q=0.5',
             }
-
+            print(f'爬取 av{av}')
             video_request = Request(
                 url=f'https://www.bilibili.com/video/av{av}',
                 headers=video_header,
@@ -68,14 +68,14 @@ class VideoSpider(scrapy.Spider):
         random_plus = timestamp + random.randint(380, 430)
         random_jq = random.randint(3057370, 9999999)
         header = {
-            'Referer': f'https://www.bilibili.com/video/av{av}/',
+            'Referer': f'https://www.bilibili.com/video/av{item["av"]}/',
             'Host': 'api.bilibili.com',
             'Accept-Language': 'en-US,en;q=0.5',
             'Accept': '*/*',
             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
         }
         yield Request(
-            url=f'http://api.bilibili.com/archive_stat/stat?aid=170001&type=json&_={timestamp}',
+            url=f'http://api.bilibili.com/archive_stat/stat?callback=&aid={item["av"]}&type=json&_={timestamp}',
             dont_filter=False,
             headers=header,
             callback=self.parse,
