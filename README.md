@@ -16,6 +16,12 @@ scrapy crawl user
 ```
 需要在settings中设置爬取的mid的起止点(USER_START和USER_END)
 *****
+#### Video(爬取视频信息）
+```
+scrapy crawl video
+```
+需要在settings中设置爬取的av号的起止点(VIDEO_START和VIDEO_END)
+*****
 ## 使用配置
 配置在setting中，配置相关信息
 1. MongoDB数据库配置（连接参数）
