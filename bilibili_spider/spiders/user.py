@@ -20,8 +20,6 @@ def datetime_to_timestamp_in_milliseconds(d):
     return current_milli_time()
 
 
-
-
 class UserSpider(scrapy.Spider):
     name = 'user'
     allowed_domains = ['bilibili.com']
@@ -31,13 +29,13 @@ class UserSpider(scrapy.Spider):
     def start_requests(self):
         for uid in self.spider_user_uid:
             header = {
-                'Referer': 'https://space.bilibili.com/' + str(uid) + '?from=search&seid=' + str(
-                    random.randint(10000, 50000)),
+                'Referer': 'https://space.bilibili.com/' + str(uid),
                 'Origin': 'http://space.bilibili.com',
                 'Host': 'space.bilibili.com',
                 'AlexaToolbar-ALX_NS_PH': 'AlexaToolbar/alx-4.0',
-                'Accept-Language': 'zh-CN,zh;q=0.8,en;q=0.6,ja;q=0.4',
-                'Accept': 'application/json, text/javascript, */*; q=0.01',
+                'Accept-Language': 'en-US,en;q=0.5',
+                'Accept': '*/*',
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
                 'X-Requested-With': 'XMLHttpRequest',
             }
             body = {
@@ -54,7 +52,6 @@ class UserSpider(scrapy.Spider):
             )
 
     def parse(self, response: Response):
-        print("---------------------")
         data = json.loads(response.body)
         item = UserItem()
         item['data'] = data['data']

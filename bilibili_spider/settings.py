@@ -19,17 +19,17 @@ NEWSPIDER_MODULE = 'bilibili_spider.spiders'
 
 # 爬取用户的UID起止点
 USER_START = 1
-USER_END = 3
+USER_END = 2
 
 # MongoDB配置
 MONGO_HOST = "127.0.0.1"
 MONGO_PORT = "27017"
 MONGO_USERNAME = ""
 MONGO_PASSWORD = ""
-MONGO_DATABASE = "Bilibili"
+MONGO_DATABASE = "Bilibili_Spider"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 PROXY_LIST = 'list.txt'
 

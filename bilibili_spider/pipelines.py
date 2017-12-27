@@ -20,8 +20,7 @@ class UserPipelines(object):
     def process_item(self, item, spider):
         if isinstance(item, UserItem):
             user_data = item['data']
-            exist_user = self.collection.find({"mid": user_data['mid']})
-            print(type(exist_user))
+            exist_user = self.collection.find_one({"mid": user_data['mid']})
             if exist_user is None:
                 self.collection.insert(user_data)
         return item
